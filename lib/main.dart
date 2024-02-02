@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:full_time_force/core/providers/providers.dart';
 import 'package:full_time_force/features/history_commits/ui/history_commits_page.dart';
 
 void main() {
@@ -10,13 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FullTimeForce',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiBlocProvider(
+      providers: MyProviders.myProviders,
+      child: MaterialApp(
+        title: 'FullTimeForce',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const HistoryCommitsPage(),
       ),
-      home: const HistoryCommitsPage(),
     );
   }
 }
