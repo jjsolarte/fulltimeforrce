@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:full_time_force/features/history_commits/bloc/history_commits_bloc.dart';
+import 'package:full_time_force/features/history_commits/ui/widget/history_commit_manager_widget.dart';
+import 'package:full_time_force/ui/style/palette.dart';
+import 'package:full_time_force/ui/widget/custom_floating_button.dart';
 
 class HistoryCommitsPage extends StatelessWidget {
   const HistoryCommitsPage({Key? key}) : super(key: key);
@@ -13,17 +14,9 @@ class HistoryCommitsPage extends StatelessWidget {
             'History Commits',
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.deepPurple),
-      body: Container(),
-      floatingActionButton: IconButton(
-          onPressed: () => context
-              .read<HistoryCommitsBloc>()
-              .add(HistoryCommitCallListEvent()),
-          color: Colors.deepPurpleAccent,
-          icon: const Icon(
-            Icons.download,
-            color: Colors.deepPurple,
-          )),
+          backgroundColor: Palette.primaryColor),
+      body: const HistoryCommitManagerWidget(),
+      floatingActionButton: const CustomFloatingButton(),
     );
   }
 }
